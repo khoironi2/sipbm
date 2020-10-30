@@ -91,7 +91,7 @@ class Auth extends CI_Controller
                 'level' => $level
             ];
 
-            $insert = $this->auth_model->register("users", $data);
+            $insert = $this->auth_model->register("tbl_users", $data);
 
             if ($insert) {
 
