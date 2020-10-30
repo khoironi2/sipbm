@@ -7,9 +7,11 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Dashboard'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/topbar', $data);
         $this->load->view('admin/dashboard/index');
         $this->load->view('templates/footer');
     }
@@ -19,6 +21,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Users'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
