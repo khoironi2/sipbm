@@ -42,7 +42,10 @@ class Auth extends CI_Controller
                     $this->session->set_userdata('name', $cek_login->name);
                     $this->session->set_userdata('email', $cek_login->email);
                     $this->session->set_userdata('level', $cek_login->level);
-
+                    date_default_timezone_set("ASIA/JAKARTA");
+                    //$email = $this->session->userdata('email');
+                    $data = array('time_login_users' => date('Y-m-d H:i:s'));
+                    $this->Auth_model->logout($data, $email);
                     redirect('/Admin');
                 } else {
 
@@ -104,6 +107,11 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        date_default_timezone_set("ASIA/JAKARTA");
+        $email = $this->session->userdata('email');
+        $data = array('time_logout_users' => date('Y-m-d H:i:s'));
+
+        $this->Auth_model->logout($data, $email);
         $this->session->sess_destroy();
         echo '<script>
             alert("Sukses! Anda berhasil logout."); 

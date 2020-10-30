@@ -29,4 +29,10 @@ class Auth_model extends CI_Model
         else
             return false;
     }
+
+    public function logout($data, $email)
+    {
+        $this->db->where('email', $email);
+        $this->db->update('tbl_users', $data);
+    }
 }
