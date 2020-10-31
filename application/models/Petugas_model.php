@@ -6,7 +6,7 @@ class Petugas_model extends CI_model
     {
         $this->db->select('*');
         $this->db->from('tbl_users');
-        $this->db->where('level', 'petugas');
+        $this->db->where('level', 'petugas_perawatan');
 
         $result = $this->db->get();
 
