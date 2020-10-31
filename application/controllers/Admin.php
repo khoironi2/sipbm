@@ -184,4 +184,72 @@ class Admin extends CI_Controller
         $this->load->view('admin/perawatan/show');
         $this->load->view('templates/footer');
     }
+
+    // |------------------------------------------------------
+    // | LAPORAN
+    // |------------------------------------------------------
+    // history perawatan
+    public function history()
+    {
+        $data = [
+            'title' => 'Admin | History Perawatan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/history/index');
+        $this->load->view('templates/footer');
+    }
+
+    public function laporan_observasi()
+    {
+        $data = [
+            'title' => 'Admin | Laporan Observasi'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/laporan/observasi');
+        $this->load->view('templates/footer');
+    }
+
+    public function laporan_perbaikan()
+    {
+        $data = [
+            'title' => 'Admin | History Perbaikan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/laporan/perbaikan');
+        $this->load->view('templates/footer');
+    }
+
+    public function laporan_perawatan()
+    {
+        $data = [
+            'title' => 'Admin | History Perawatan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/laporan/perawatan');
+        $this->load->view('templates/footer');
+    }
+
+    // |------------------------------------------------------
+    // | ADMIN PANEL
+    // |------------------------------------------------------
+    // profile
+    public function profile()
+    {
+        $data = [
+            'title' => 'Admin | Profile'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/profile/index');
+        $this->load->view('templates/footer');
+    }
 }
