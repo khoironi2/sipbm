@@ -3,7 +3,7 @@
     <i class="fas fa-plus"></i>
     Tambah Data Perbaikan
 </button>
-
+<?= $this->session->flashdata('message'); ?>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">List Data Perbaikan</h6>
@@ -71,14 +71,15 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="" method="POST">
+        <form action="<?= base_url('admin/perbaikan'); ?>" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <label for="id_koleksi">Nama koleksi</label>
                     <select class="form-control" id="id_koleksi" name="id_koleksi">
                         <option disabled>-- pilih koleksi --</option>
-                        <option value="admin">Foto</option>
-                        <option value="pihak_pusat">Minatur Pesawat</option>
+                        <?php foreach ($collections as $collection) : ?>
+                            <option value="<?= $collection["id_koleksi"]; ?>"><?= $collection["nama_koleksi"]; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
@@ -86,35 +87,40 @@
                     <label for="id_ruang_koleksi">Nama ruang koleksi</label>
                     <select class="form-control" id="id_ruang_koleksi" name="id_ruang_koleksi">
                         <option disabled>-- pilih koleksi --</option>
-                        <option value="admin">Bagian dalam</option>
-                        <option value="pihak_pusat">Bagian pojok lemari</option>
+                        <?php foreach ($collection_rooms as $collection_room) : ?>
+                            <option value="<?= $collection_room["id_ruang_koleksi"] ?>"><?= $collection_room["nama_ruang_koleksi"] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="bahan_observasi_koleksi">Bahan</label>
-                    <input type="text" class="form-control" id="bahan_observasi_koleksi" name="bahan_observasi_koleksi">
+                    <label for="bahan_permintaan_perbaikan">Bahan</label>
+                    <input type="text" class="form-control" id="bahan_permintaan_perbaikan" name="bahan_permintaan_perbaikan">
+                    <?= form_error('bahan_permintaan_perbaikan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
                 <div class="form-group">
-                    <label for="keadaan_observasi_koleksi">Keadaan Koleksi</label>
-                    <textarea type="text" class="form-control" id="keadaan_observasi_koleksi" name="keadaan_observasi_koleksi"></textarea>
+                    <label for="keadaan_koleksi_permintaan_perbaikan">Keadaan Koleksi</label>
+                    <textarea type="text" class="form-control" id="keadaan_koleksi_permintaan_perbaikan" name="keadaan_koleksi_permintaan_perbaikan"></textarea>
+                    <?= form_error('keadaan_koleksi_permintaan_perbaikan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
                 <div class="form-group">
-                    <label for="no_vitrin_observasi_koleksi">No. Vitrin</label>
-                    <input type="text" class="form-control" id="no_vitrin_observasi_koleksi" name="no_vitrin_observasi_koleksi">
+                    <label for="no_vitrin_permintaan_perbaikan">No. Vitrin</label>
+                    <input type="text" class="form-control" id="no_vitrin_permintaan_perbaikan" name="no_vitrin_permintaan_perbaikan">
+                    <?= form_error('no_vitrin_permintaan_perbaikan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
                 <div class="form-group">
-                    <label for="tanggal_perbaikan">Tanggal Perbaikan</label>
-                    <input type="date" class="form-control" id="tanggal_perbaikan" name="tanggal_perbaikan">
+                    <label for="time_permintaan_perbaikan">Tanggal Perbaikan</label>
+                    <input type="date" class="form-control" id="time_permintaan_perbaikan" name="time_permintaan_perbaikan">
+                    <?= form_error('time_permintaan_perbaikan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
                 <div class="form-group">
-                    <label for="foto_kerusakan">Foto Kerusakan</label>
+                    <label for="gambar_kerusakan_permintaan_perbaikan">Foto Kerusakan</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="foto_kerusakan" name="foto_kerusakan">
+                        <input type="file" class="custom-file-input" id="gambar_kerusakan_permintaan_perbaikan" name="gambar_kerusakan_permintaan_perbaikan">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
