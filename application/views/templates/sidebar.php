@@ -36,19 +36,19 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/koleksi') ?>">
             <i class="fas fa-fw fa-list"></i>
             <span>Data Koleksi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/observasi') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Data Observasi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/petugas') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Petugas</span>
         </a>
