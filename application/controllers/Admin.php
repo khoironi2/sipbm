@@ -147,4 +147,41 @@ class Admin extends CI_Controller
         $this->load->view('admin/perbaikan/update');
         $this->load->view('templates/footer');
     }
+
+    // perbaikan
+    public function perawatan()
+    {
+        $data = [
+            'title' => 'Admin | Perawatan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perawatan/index');
+        $this->load->view('templates/footer');
+    }
+
+    public function update_perawatan()
+    {
+        $data = [
+            'title' => 'Admin | Update Perawatan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perawatan/update');
+        $this->load->view('templates/footer');
+    }
+
+    public function detail_perawatan()
+    {
+        $data = [
+            'title' => 'Admin | Detail Perawatan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perawatan/show');
+        $this->load->view('templates/footer');
+    }
 }

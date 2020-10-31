@@ -67,6 +67,12 @@
             <span>Perbaikan</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/perawatan') ?>">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Perawatan</span>
+        </a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
