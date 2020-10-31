@@ -25,7 +25,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Data Master
+        DATA MASTER
     </div>
 
     <!-- Nav Item - Tables -->
@@ -36,19 +36,19 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/koleksi') ?>">
             <i class="fas fa-fw fa-list"></i>
             <span>Data Koleksi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/observasi') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Data Observasi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/petugas') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Petugas</span>
         </a>
@@ -57,6 +57,70 @@
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
 
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        KEGIATAN
+    </div>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/perbaikan') ?>">
+            <i class="fas fa-fw fa-calendar"></i>
+            <span>Perbaikan</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/perawatan') ?>">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Perawatan</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider mt-3">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        LAPORAN
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/history') ?>">
+            <i class="fas fa-fw fa-history"></i>
+            <span>Histori Perawatan</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/laporan_observasi') ?>">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Laporan Observasi</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/laporan_perbaikan') ?>">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Laporan Perbaikan</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/laporan_perawatan') ?>">
+            <i class="fas fa-fw fa-file"></i>
+            <span>Laporan Perawatan</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider mt-3">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        ADMIN PANEL
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/profile') ?>">
+            <i class="fas fa-fw fa-edit"></i>
+            <span>Edit Profile</span>
+        </a>
+    </li>
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
             <i class="fas fa-fw fa-user"></i>
