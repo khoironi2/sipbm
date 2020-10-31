@@ -228,12 +228,12 @@
                     <form action="<?= base_url('Admin/updatePwdUsers') ?>" method="POST">
 
                         <div class="form-group">
-                            <input type="text" disabled hidden name="id_users" value="<?= $datausers->id_users; ?>" class="form-control" id="id_users" placeholder="Masukan nama user">
+                            <input type="text" hidden name="id_users" value="<?= $datausers->id_users; ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Masukan password user" required>
+                            <input type="password" name="password" class="form-control" placeholder="Masukan password user">
 
                         </div>
 
