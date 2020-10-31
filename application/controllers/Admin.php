@@ -2,6 +2,9 @@
 
 class Admin extends CI_Controller
 {
+    // |------------------------------------------------------
+    // | Dashboard
+    // |------------------------------------------------------
     public function index()
     {
         $data = [
@@ -14,6 +17,10 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    // |------------------------------------------------------
+    // | Data Master
+    // |------------------------------------------------------
+    // users
     public function users()
     {
         $data = [
@@ -110,6 +117,34 @@ class Admin extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
         $this->load->view('admin/petugas/update');
+        $this->load->view('templates/footer');
+    }
+
+    // |------------------------------------------------------
+    // | Kegiatan
+    // |------------------------------------------------------
+    // perbaikan
+    public function perbaikan()
+    {
+        $data = [
+            'title' => 'Admin | Perbaikan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perbaikan/index');
+        $this->load->view('templates/footer');
+    }
+
+    public function update_perbaikan()
+    {
+        $data = [
+            'title' => 'Admin | Update Perbaikan'
+        ];
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perbaikan/update');
         $this->load->view('templates/footer');
     }
 }

@@ -25,7 +25,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Data Master
+        DATA MASTER
     </div>
 
     <!-- Nav Item - Tables -->
@@ -51,6 +51,20 @@
         <a class="nav-link pb-0" href="<?= base_url('admin/petugas') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Petugas</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider mt-3">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        KEGIATAN
+    </div>
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/perbaikan') ?>">
+            <i class="fas fa-fw fa-calendar"></i>
+            <span>Perbaikan</span>
         </a>
     </li>
 
