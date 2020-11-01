@@ -32,6 +32,7 @@ class Observasi_model extends CI_Model
         return $result->result();
     }
 
+
     public function laporanObservasi()
     {
         $dari = $this->input->post('dari');
