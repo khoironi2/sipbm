@@ -2,7 +2,7 @@
     <div class="col-xl-7">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
-                <form action="<?= base_url('admin/laporan_observasi'); ?>" method="POST">
+                <form action="<?= base_url('admin/laporan_observasi_pdf'); ?>" method="POST">
                     <div class="form-group">
                         <label for="dari">Dari</label>
                         <input type="date" class="form-control" id="dari" name="dari">

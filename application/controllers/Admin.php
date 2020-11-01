@@ -909,13 +909,13 @@ class Admin extends CI_Controller
 
     public function laporan_observasi_pdf()
     {
-        // $this->load->library('dompdf_gen');
+        $this->load->library('dompdf_gen');
         
         if ($this->input->post('dari') AND $this->input->post('sampai')) {
             $data['observasi'] = $this->Observasi_model->laporanObservasi();
         }
 
-        $this->load->view('admin/laporan/pdf/Observasi');
+        $this->load->view('admin/laporan/pdf/Observasi', $data);
 
         $paper_size = 'A4';
         $orientation = 'landscape';
