@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <?php if (!empty($observasi)) : ?>
 <a href="<?= base_url('admin/laporan_observasi_pdf'); ?>" class="btn btn-danger mt-5">
     <i class="fas fa-file"></i>    
@@ -102,4 +102,4 @@
     <div class="alert alert-danger mt-5">
         Data tanggal yang dicari belum ditemukan!
     </div>
-<?php endif; ?>
+<?php endif; ?> -->

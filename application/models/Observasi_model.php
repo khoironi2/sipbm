@@ -32,12 +32,12 @@ class Observasi_model extends CI_Model
         return $result->result();
     }
     public function data_barang_masuk($daterange) {
-    if($daterange[0])
-        $this->db->where('time_observasi >=', $daterange[0]);
-    if($daterange[1])
-        $this->db->where('time_observasi <=', $daterange[1]);
-    return $this->db->get('tbl_observasi')->result_array();
-}
+        if($daterange[0])
+            $this->db->where('time_observasi >=', $daterange[0]);
+        if($daterange[1])
+            $this->db->where('time_observasi <=', $daterange[1]);
+        return $this->db->get('tbl_observasi')->result_array();
+    }
 
     public function laporanObservasi()
     {
