@@ -785,7 +785,6 @@ class Admin extends CI_Controller
             'title' => 'Admin | Perawatan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
-<<<<<<< HEAD
 
         // validations
         $this->form_validation->set_rules('no_vitrin_permintaan_perbaikan', 'no vitrin', 'required');
@@ -799,14 +798,13 @@ class Admin extends CI_Controller
         } else {
             echo 'ok';
         }
-=======
+
         $data['petugas'] = $this->Petugas_model->getpetugas();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
         $this->load->view('admin/perawatan/index');
         $this->load->view('templates/footer');
->>>>>>> 3c929739e8673795105655e22007f9bb490411bc
     }
 
     public function update_perawatan()
@@ -842,6 +840,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | History Perawatan'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -854,6 +854,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Laporan Observasi'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -866,6 +868,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | History Perbaikan'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -878,6 +882,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | History Perawatan'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -894,6 +900,8 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Profile'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
