@@ -187,8 +187,6 @@ class Admin extends CI_Controller
         ];
 
         // validations
-        $this->form_validation->set_rules('no_vitrin_permintaan_perbaikan', 'no vitrin', 'required');
-
         $this->form_validation->set_rules('keadaan_koleksi_perawatan', 'keadaan koleksi perawatan', 'required');
         $this->form_validation->set_rules('no_vitrin_koleksi_perawatan', 'no vitrin', 'required');
         $this->form_validation->set_rules('time_perawatan', 'tanggal perawatan', 'required');
@@ -208,12 +206,12 @@ class Admin extends CI_Controller
             redirect('admin/perawatan');
         }
 
-        $data['petugas'] = $this->Petugas_model->getpetugas();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('admin/perawatan/index');
-        $this->load->view('templates/footer');
+        // $data['petugas'] = $this->Petugas_model->getpetugas();
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar');
+        // $this->load->view('templates/topbar');
+        // $this->load->view('admin/perawatan/index');
+        // $this->load->view('templates/footer');
     }
 
     public function update_perawatan($id)
@@ -369,12 +367,50 @@ class Admin extends CI_Controller
             'title' => 'Admin | Profile',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
-        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('admin/profile/index');
-        $this->load->view('templates/footer');
+
+        $old_image = $data['users']['gambar_users'];
+
+        // validation
+        $this->form_validation->set_rules('name', 'nama', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
+            $this->load->view('admin/profile/index');
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'name' => $this->input->post('name'),
+                'telepon_users' => $this->input->post('telepon_users'),
+                'alamat_users' => $this->input->post('alamat_users'),
+            ];
+
+            $upload_image = $_FILES['gambar_users']['name'];
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['upload_path'] = './assets/img/users/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('gambar_users')) {
+                    // $old_image = $data['improvement']['gambar_kerusakan_permintaan_perbaikan'];
+                    if ($old_image != 'default.jpg') {
+                        unlink(FCPATH . 'assets/img/users/' . $old_image);
+                    }
+
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('gambar_users', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+
+            $this->db->where('email', $this->input->post('email'));
+            $this->db->update('tbl_users', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
+            redirect('admin/profile');
+        }
     }
 }
