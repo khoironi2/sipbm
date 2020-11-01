@@ -40,21 +40,24 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>US001</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>
-                            <a href="<?= base_url('admin/update_perbaikan') ?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-                            <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
+                <?php $i = 1; ?>
+                    <?php foreach ($improvements as $improvement) : ?>
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $improvement["nama_koleksi"]; ?></td>
+                            <td><?= $improvement["nama_ruang_koleksi"]; ?></td>
+                            <td><?= $improvement["bahan_permintaan_perbaikan"]; ?></td>
+                            <td><?= $improvement["keadaan_koleksi_permintaan_perbaikan"]; ?></td>
+                            <td><?= $improvement["no_vitrin_permintaan_perbaikan"]; ?></td>
+                            <td><?= $improvement["time_permintaan_perbaikan"]; ?></td>
+                            <td class="text-center"><img src="<?= base_url('assets/img/perbaikan/' . $improvement["gambar_kerusakan_permintaan_perbaikan"]); ?>" width="70" class="img-thumbnail" alt=""></td>
+                            <td><?= $improvement["status_permintaan_perbaikan"]; ?></td>
+                            <td>
+                                <a href="<?= base_url('admin/update_perbaikan/' . $improvement["id_permintaan_perbaikan"]); ?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                <a onclick="return confirm('Data perbaikan akan terhapus')" href="<?= base_url('admin/deletePerbaikan/' . $improvement["id_permintaan_perbaikan"]); ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
