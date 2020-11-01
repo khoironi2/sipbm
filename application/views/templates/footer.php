@@ -61,6 +61,35 @@
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js">
 </script>
+
+<script>
+    <?php if ($this->session->userdata('level') == "admin") { ?>
+        $(document).ready(function() {
+
+            $(".pusat").remove();
+
+        });
+    <?php }
+
+    if ($this->session->userdata('level') == "pihak_pusat") { ?>
+
+        $(document).ready(function() {
+            $(".admin").remove();
+
+        });
+
+    <?php } else if ($this->session->userdata('level') == "pengelola") { ?>
+
+        $(document).ready(function() {
+
+            $("#btn-action").remove();
+
+
+        });
+
+    <?php } else {
+    }; ?>
+</script>
 </body>
 
 </html>
