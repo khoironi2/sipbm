@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Beranda</li>
+    </ol>
+</nav>
+
 <div class="card">
     <h3 class="text-center mb-4 mt-3">About Museum</h3>
     <div class="row justify-content-center">

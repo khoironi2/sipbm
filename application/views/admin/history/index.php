@@ -1,4 +1,10 @@
-<div class="row">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Histori Perawatan</li>
+    </ol>
+</nav>
+
+<div class="row mt-4">
     <div class="col-sm-1">
         <div class="form-group">
             <select class="form-control" id="tanggal">
@@ -71,7 +77,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                <?php $no = 1; ?>
+                    <?php $no = 1; ?>
                     <?php foreach ($histories as $history) : ?>
                         <tr>
                             <td><?= $no++ ?></td>

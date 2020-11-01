@@ -1,5 +1,10 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Data Petugas</li>
+    </ol>
+</nav>
 <!-- DataTales Example -->
-<button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#formDataPetugas">
+<button type="button" class="btn btn-primary mb-2 mt-2" data-toggle="modal" data-target="#formDataPetugas">
     <i class="fas fa-plus"></i>
     Tambah Data Petugas
 </button>

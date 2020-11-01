@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">laporan Perawatan</li>
+    </ol>
+</nav>
+
 <div class="row">
     <div class="col-xl-7">
         <div class="card border-left-primary shadow h-100 py-2">

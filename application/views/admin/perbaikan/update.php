@@ -1,4 +1,10 @@
-<div class="card">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Data Perbaikan</li>
+    </ol>
+</nav>
+
+<div class="card mt-4">
     <div class="card-header">
         Edit Data Perbaikan
     </div>

@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Data Perawatan</li>
+    </ol>
+</nav>
+
 <div class="card">
     <div class="card-header">
         Edit Data Perawatan
@@ -6,7 +12,7 @@
         <form action="<?= base_url('admin/update_perawatan/' . $perawatan["id_perawatan"]) ?>" method="POST">
 
             <input type="hidden" name="id_perawatan" value="<?= $perawatan["id_perawatan"]; ?>">
-            
+
             <div class="form-group">
                 <label for="id_users">Nama Petugas</label>
                 <select class="form-control" id="id_users" name="id_users">
