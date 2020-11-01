@@ -428,6 +428,14 @@ class Admin extends CI_Controller
 
     public function laporan_perawatan_pdf()
     {
+        if ($this->CI->router->fetch_class() != "login") {
+            // session check logic here...change this accordingly
+            if ($this->CI->session->userdata['level'] == 'pengelola') {
+                redirect('Admin');
+            } elseif ($this->CI->session->userdata['level'] == 'pihak_pusat') {
+                redirect('Admin');
+            }
+        }
         $this->load->library('dompdf_gen');
 
         $keyword1 = $this->input->post('keyword1');
