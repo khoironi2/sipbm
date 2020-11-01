@@ -66,7 +66,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Admin/registerFormUsers') ?>" method="POST">
+                <form action="<?= base_url('users/users/registerFormUsers') ?>" method="POST">
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" name="name" class="form-control" id="nama" placeholder="Masukan nama user">
@@ -178,7 +178,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Admin/updateUsers') ?>" method="POST">
+                    <form action="<?= base_url('users/users/updateUsers') ?>" method="POST">
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" name="name" value="<?= $datausers->name; ?>" class="form-control" id="nama" placeholder="Masukan nama user">
@@ -225,7 +225,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Admin/updatePwdUsers') ?>" method="POST">
+                    <form action="<?= base_url('users/users/updatePwdUsers') ?>" method="POST">
 
                         <div class="form-group">
                             <input type="text" hidden name="id_users" value="<?= $datausers->id_users; ?>" class="form-control">
@@ -269,7 +269,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                        <a class="btn btn-danger" href="<?= base_url('Admin/deleteusers/' . $datausers->id_users) ?>">YAKIN !</a>
+                        <a class="btn btn-danger" href="<?= base_url('users/users/deleteusers/' . $datausers->id_users) ?>">YAKIN !</a>
                     </div>
                 </div>
             </div>

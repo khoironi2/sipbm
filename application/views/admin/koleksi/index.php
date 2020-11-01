@@ -77,7 +77,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('Admin/doTambahBerita') ?>" enctype="multipart/form-data" method="POST">
+            <form action="<?= base_url('koleksi/koleksi/doTambahBerita') ?>" enctype="multipart/form-data" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nama_koleksi">Nama Koleksi</label>
@@ -212,7 +212,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Admin/updateKoleksi') ?>" method="POST">
+                    <form action="<?= base_url('koleksi/Koleksi/updateKoleksi') ?>" method="POST">
                         <div class="form-group">
                             <label for="nama">Nama Koleksi</label>
                             <input type="text" name="nama_koleksi" value="<?= $data->nama_koleksi; ?>" class="form-control" id="nama_koleksi" placeholder="Masukan nama user" required>
@@ -329,7 +329,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                        <a class="btn btn-danger" href="<?= base_url('Admin/deletekoleksi/' . $data->id_koleksi) ?>">YAKIN !</a>
+                        <a class="btn btn-danger" href="<?= base_url('koleksi/Koleksi/deletekoleksi/' . $data->id_koleksi) ?>">YAKIN !</a>
                     </div>
                 </div>
             </div>

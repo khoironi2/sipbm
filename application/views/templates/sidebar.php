@@ -30,25 +30,25 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('users/users') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Data User</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/koleksi') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('koleksi/koleksi') ?>">
             <i class="fas fa-fw fa-list"></i>
             <span>Data Koleksi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/observasi') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('observasi/observasi') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Data Observasi</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/petugas') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('petugas/petugas') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Petugas</span>
         </a>

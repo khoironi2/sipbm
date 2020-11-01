@@ -72,7 +72,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('Admin/postObservasi') ?>" method="POST">
+            <form action="<?= base_url('observasi/Observasi/postObservasi') ?>" method="POST">
 
                 <div class="modal-body">
                     <div class="form-group">
@@ -214,7 +214,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Admin/updateObservasi') ?>" method="POST">
+                    <form action="<?= base_url('observasi/Observasi/updateObservasi') ?>" method="POST">
 
                         <div class="modal-body">
                             <div class="form-group">
@@ -230,6 +230,7 @@
                             <div class="form-group">
                                 <label for="id_ruang_koleksi">Nama ruang koleksi</label>
                                 <select class="form-control" id="id_ruang_koleksi" name="id_ruang_koleksi">
+                                    <option value="<?= $dataob->id_ruang_koleksi; ?>"><?= $dataob->nama_ruang_koleksi; ?></option>
                                     <?php foreach ($ruang as $dataruang) : ?>
                                         <option value="<?= $dataruang->id_ruang_koleksi; ?>"><?= $dataruang->nama_ruang_koleksi; ?></option>
                                     <?php endforeach ?>
@@ -306,7 +307,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                        <a class="btn btn-danger" href="<?= base_url('Admin/deleteObservasi/' . $datadel->id_observasi) ?>">YAKIN !</a>
+                        <a class="btn btn-danger" href="<?= base_url('observasi/Observasi/deleteObservasi/' . $datadel->id_observasi) ?>">YAKIN !</a>
                     </div>
                 </div>
             </div>
