@@ -31,6 +31,7 @@
         </tfoot>
         <tbody>
             <?php $no = 1;
+            
             foreach ($observasi as $data) : ?>
                 <tr>
                     <td><?= $no++  ?></td>

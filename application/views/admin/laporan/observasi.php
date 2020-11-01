@@ -2,9 +2,8 @@
     <div class="col-xl-7">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
-               <!--  <?php foreach ($observasiq as $key): ?>
-                <form action="<?= base_url('admin/laporan_observasi_pdf/'.$key->time_observasi); ?>" method="POST">
-                    <?php endforeach ?>
+                
+                <form action="<?= base_url('admin/laporan_observasi_pdf/'); ?>" method="POST">
                     <div class="form-group">
                         <label for="dari">Dari</label>
                         <input type="date" class="form-control" id="dari" name="dari">
@@ -18,24 +17,8 @@
                             <i class="fas fa-check"></i> Submit
                         </button>
                     </div>
-                </form> -->
-                <form action="<?php echo base_url(); ?>admin/laporan_observasi_pdf" method="get">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="form-group col-md-5">
-                      <label for="">Dari</label>
-                      <input type="date" name="keyword1" class="form-control">
-                    </div>
-                    <div class="form-group col-md-5">
-                      <label for="">Ke</label>
-                      <input type="date" name="keyword2" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-sm">Tampilkan</button>
-                  </div>
-                </div>
                 </form>
+               
                 
             </div>
         </div>

@@ -24,20 +24,13 @@ class Observasi_model extends CI_Model
         $this->db->join('tbl_koleksi', 'tbl_koleksi.id_koleksi = tbl_observasi.id_koleksi');
         $this->db->join('tbl_ruang_koleksi', 'tbl_ruang_koleksi.id_ruang_koleksi = tbl_observasi.id_ruang_koleksi');
         $this->db->join('tbl_users', 'tbl_users.id_users = tbl_observasi.id_users');
-        $this->db->where('time_observasi',$tgl_awal);
-        $this->db->where('time_observasi',$tgl_akhir);
+        $this->db->where('time_observasi >=',$tgl_awal);
+        $this->db->where('time_observasi <=',$tgl_akhir);
 
         $result = $this->db->get();
 
         return $result->result();
     }
-    public function data_barang_masuk($daterange) {
-    if($daterange[0])
-        $this->db->where('time_observasi >=', $daterange[0]);
-    if($daterange[1])
-        $this->db->where('time_observasi <=', $daterange[1]);
-    return $this->db->get('tbl_observasi')->result_array();
-}
 
     public function laporanObservasi()
     {

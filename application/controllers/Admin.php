@@ -907,10 +907,6 @@ class Admin extends CI_Controller
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $keyword1 = $this->input->get('keyword1', true);
-        $keyword2 = $this->input->get('keyword2', true);
-        $data['masuk'] = $this->Observasi_model->data_barang_masuk(array($keyword1,$keyword2));
-        $data['observasiq']=$this->Observasi_model->getAll();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -918,16 +914,14 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function laporan_observasi_pdf($keyword1,$keyword2)
+    public function laporan_observasi_pdf()
     {
         $this->load->library('dompdf_gen');
 
-        if ($this->input->post('dari') and $this->input->post('sampai')) {
-            $data['observasi'] = $this->Observasi_model->getbytgl($tgl_awal);
-        }
-        $data['observasi'] = $this->Observasi_model->data_barang_masuk(array($keyword1,$keyword2));
+        $tgl_awal=$this->input->post('dari');
+        $tgl_akhir=$this->input->post('sampai');
+        $data['observasi'] = $this->Observasi_model->getbytgl($tgl_awal,$tgl_akhir);
         $this->load->view('admin/laporan/pdf/Observasi', $data);
-
         $paper_size = 'A4';
         $orientation = 'landscape';
         $html = $this->output->get_output();
