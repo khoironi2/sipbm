@@ -659,12 +659,18 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Perawatan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'petugas' => $this->Petugas_model->getPetugas(),
+            'collections' => $this->db->get('tbl_koleksi')->result_array(),
+            'perawatan' => $this->Perawatan_model->getAllPerawatan()
         ];
-<<<<<<< HEAD
 
-        // validations
-        $this->form_validation->set_rules('no_vitrin_permintaan_perbaikan', 'no vitrin', 'required');
-
+        $this->form_validation->set_rules('keadaan_koleksi_perawatan', 'keadaan koleksi perawatan', 'required');
+        $this->form_validation->set_rules('no_vitrin_koleksi_perawatan', 'no vitrin', 'required');
+        $this->form_validation->set_rules('time_perawatan', 'tanggal perawatan', 'required');
+        $this->form_validation->set_rules('kegiatan_perawatan', 'kegiatan perawatan', 'required');
+        $this->form_validation->set_rules('bahan_perawatan', 'bahan', 'required');
+        $this->form_validation->set_rules('tambahan_perawatan', 'tambahan', 'required');
+        
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
@@ -672,40 +678,70 @@ class Admin extends CI_Controller
             $this->load->view('admin/perawatan/index');
             $this->load->view('templates/footer');
         } else {
-            echo 'ok';
+            $this->Perawatan_model->insertDataPerawatan();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Perawatan Berhasil Ditambahkan</div>');
+            redirect('admin/perawatan');
         }
-=======
-        $data['petugas'] = $this->Petugas_model->getpetugas();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('admin/perawatan/index');
-        $this->load->view('templates/footer');
->>>>>>> 3c929739e8673795105655e22007f9bb490411bc
     }
 
-    public function update_perawatan()
+    public function update_perawatan($id)
     {
         $data = [
-            'title' => 'Admin | Update Perawatan'
+            'title' => 'Admin | Update Perawatan',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'petugas' => $this->Petugas_model->getPetugas(),
+            'collections' => $this->db->get('tbl_koleksi')->result_array(),
+            'perawatan' => $this->db->get_where('tbl_perawatan', ['id_perawatan' => $id])->row_array()
+        ];
+
+        $this->form_validation->set_rules('keadaan_koleksi_perawatan', 'keadaan koleksi perawatan', 'required');
+        $this->form_validation->set_rules('no_vitrin_koleksi_perawatan', 'no vitrin', 'required');
+        $this->form_validation->set_rules('time_perawatan', 'tanggal perawatan', 'required');
+        $this->form_validation->set_rules('kegiatan_perawatan', 'kegiatan perawatan', 'required');
+        $this->form_validation->set_rules('bahan_perawatan', 'bahan', 'required');
+        $this->form_validation->set_rules('tambahan_perawatan', 'tambahan', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
+            $this->load->view('admin/perawatan/update');
+            $this->load->view('templates/footer');
+        } else {
+            $this->Perawatan_model->updateDataPerawatan($id);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Perawatan Berhasil Diubah</div>');
+            redirect('admin/perawatan');
+        }
+    }
+
+    public function detail_perawatan($id)
+    {
+        $data = [
+            'title' => 'Admin | Detail Perawatan',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'perawatan' => $this->Perawatan_model->getPerawatanById($id),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/perawatan/update');
+        $this->load->view('admin/perawatan/show', $data);
         $this->load->view('templates/footer');
     }
 
-    public function detail_perawatan()
+    public function deletePerawatan($id)
     {
-        $data = [
-            'title' => 'Admin | Detail Perawatan'
-        ];
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('admin/perawatan/show');
-        $this->load->view('templates/footer');
+        $this->db->delete('tbl_perawatan', ['id_perawatan' => $id]);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Perawatan Berhasil Dihapus!</div>');
+        redirect('admin/perawatan');
+    }
+
+    public function validasiPerawatan($id)
+    {
+        $this->db->where('id_perawatan', $this->input->post('id_perawatan'));
+        $this->db->update('tbl_perawatan', ['validasi_perawatan' => 'sudah']);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Perawatan Berhasil Masuk Dihistori Perawatan!</div>');
+        redirect('admin/detail_perawatan/' . $id);
     }
 
     // |------------------------------------------------------
@@ -715,7 +751,9 @@ class Admin extends CI_Controller
     public function history()
     {
         $data = [
-            'title' => 'Admin | History Perawatan'
+            'title' => 'Admin | History Perawatan',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'histories' => $this->Perawatan_model->getAllHistory()
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -727,7 +765,8 @@ class Admin extends CI_Controller
     public function laporan_observasi()
     {
         $data = [
-            'title' => 'Admin | Laporan Observasi'
+            'title' => 'Admin | Laporan Observasi',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -739,7 +778,8 @@ class Admin extends CI_Controller
     public function laporan_perbaikan()
     {
         $data = [
-            'title' => 'Admin | History Perbaikan'
+            'title' => 'Admin | History Perbaikan',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -751,7 +791,8 @@ class Admin extends CI_Controller
     public function laporan_perawatan()
     {
         $data = [
-            'title' => 'Admin | History Perawatan'
+            'title' => 'Admin | History Perawatan',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -767,7 +808,8 @@ class Admin extends CI_Controller
     public function profile()
     {
         $data = [
-            'title' => 'Admin | Profile'
+            'title' => 'Admin | Profile',
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
