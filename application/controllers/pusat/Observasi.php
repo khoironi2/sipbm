@@ -15,12 +15,12 @@ class Observasi extends CI_Controller
             // session check logic here...change this accordingly
             if ($this->CI->session->userdata['level'] == 'pengelola') {
                 redirect('Admin');
-            } elseif ($this->CI->session->userdata['level'] == 'pihak_pusat') {
+            } elseif ($this->CI->session->userdata['level'] == 'admin') {
                 redirect('Admin');
             }
         }
         $data = [
-            'title' => 'Admin | Observasi'
+            'title' => 'Pusat | Data Observasi'
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -30,7 +30,7 @@ class Observasi extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/observasi/index', $data);
+        $this->load->view('pusat/observasi/index', $data);
         $this->load->view('templates/footer');
     }
 

@@ -5,6 +5,7 @@ class Petugas extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->cek_status();
         $this->CI = &get_instance();
     }
 
@@ -14,7 +15,7 @@ class Petugas extends CI_Controller
             // session check logic here...change this accordingly
             if ($this->CI->session->userdata['level'] == 'pengelola') {
                 redirect('Admin');
-            } elseif ($this->CI->session->userdata['level'] == 'pihak_pusat') {
+            } elseif ($this->CI->session->userdata['level'] == 'admin') {
                 redirect('Admin');
             }
         }
@@ -27,7 +28,7 @@ class Petugas extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/petugas/index', $data);
+        $this->load->view('pusat/petugas/index', $data);
         $this->load->view('templates/footer');
     }
 

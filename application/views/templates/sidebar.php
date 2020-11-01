@@ -57,24 +57,45 @@
 
     <!-- Nav Item -  pihak pusat area Tables -->
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/koleksi/koleksi') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/koleksi') ?>">
             <i class="fas fa-fw fa-list"></i>
             <span>Data Koleksi</span>
         </a>
     </li>
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/observasi/observasi') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/observasi') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Data Observasi</span>
         </a>
     </li>
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/petugas/petugas') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/petugas') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Petugas</span>
         </a>
     </li>
     <!-- Nav Item -  end pihak pusat area Tables -->
+
+    <!-- Nav Item -  pihak pengelola Tables -->
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/koleksi') ?>">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Data Koleksi</span>
+        </a>
+    </li>
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/observasi') ?>">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Data Observasi</span>
+        </a>
+    </li>
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/petugas') ?>">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Data Petugas</span>
+        </a>
+    </li>
+    <!-- Nav Item -  end pengelola area Tables -->
 
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
@@ -100,18 +121,33 @@
 
     <!-- start area pihak pusat -->
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/admin/perbaikan') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/perbaikan') ?>">
             <i class="fas fa-fw fa-calendar"></i>
             <span>Perbaikan</span>
         </a>
     </li>
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/admin/perawatan') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/perawatan') ?>">
             <i class="fas fa-fw fa-cogs"></i>
             <span>Perawatan</span>
         </a>
     </li>
     <!-- end area pihak pusat -->
+
+    <!-- start area pengelola -->
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/perbaikan') ?>">
+            <i class="fas fa-fw fa-calendar"></i>
+            <span>Perbaikan</span>
+        </a>
+    </li>
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/perawatan') ?>">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Perawatan</span>
+        </a>
+    </li>
+    <!-- end area pengelola -->
 
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
@@ -150,12 +186,20 @@
 
     <!-- start area pihak pusat -->
     <li class="nav-item pusat">
-        <a class="nav-link pb-0" href="<?= base_url('pusat/admin/history') ?>">
+        <a class="nav-link pb-0" href="<?= base_url('pusat/history') ?>">
             <i class="fas fa-fw fa-history"></i>
             <span>Histori Perawatan</span>
         </a>
     </li>
     <!-- end area pihak pusat -->
+    <!-- start area pengelola -->
+    <li class="nav-item pengelola">
+        <a class="nav-link pb-0" href="<?= base_url('pengelola/history') ?>">
+            <i class="fas fa-fw fa-history"></i>
+            <span>Histori Perawatan</span>
+        </a>
+    </li>
+    <!-- end area pengelola -->
 
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">

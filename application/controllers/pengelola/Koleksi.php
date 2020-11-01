@@ -13,14 +13,14 @@ class Koleksi extends CI_Controller
     {
         if ($this->CI->router->fetch_class() != "login") {
             // session check logic here...change this accordingly
-            if ($this->CI->session->userdata['level'] == 'pengelola') {
+            if ($this->CI->session->userdata['level'] == 'admin') {
                 redirect('Admin');
             } elseif ($this->CI->session->userdata['level'] == 'pihak_pusat') {
                 redirect('Admin');
             }
         }
         $data = [
-            'title' => 'Admin | Koleksi'
+            'title' => 'Pengelola | Data Koleksi'
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -29,7 +29,7 @@ class Koleksi extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/koleksi/index', $data);
+        $this->load->view('pengelola/koleksi/index', $data);
         $this->load->view('templates/footer');
     }
 

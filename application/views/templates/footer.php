@@ -67,6 +67,7 @@
         $(document).ready(function() {
 
             $(".pusat").remove();
+            $(".pengelola").remove();
 
         });
     <?php }
@@ -75,6 +76,7 @@
 
         $(document).ready(function() {
             $(".admin").remove();
+            $(".pengelola").remove();
 
         });
 
@@ -82,7 +84,8 @@
 
         $(document).ready(function() {
 
-            $("#btn-action").remove();
+            $(".admin").remove();
+            $(".pusat").remove();
 
 
         });

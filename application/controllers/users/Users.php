@@ -11,6 +11,14 @@ class Users extends CI_Controller
 
     public function index()
     {
+        if ($this->CI->router->fetch_class() != "login") {
+            // session check logic here...change this accordingly
+            if ($this->CI->session->userdata['level'] == 'pengelola') {
+                redirect('Admin');
+            } elseif ($this->CI->session->userdata['level'] == 'pihak_pusat') {
+                redirect('Admin');
+            }
+        }
         $data = [
             'title' => 'Admin | Users'
         ];

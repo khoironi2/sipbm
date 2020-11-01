@@ -1,8 +1,3 @@
-<!-- DataTales Example -->
-<button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#formDataPerbaikan">
-    <i class="fas fa-plus"></i>
-    Tambah Data Perbaikan
-</button>
 <?= $this->session->flashdata('message'); ?>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -22,7 +17,6 @@
                         <th>Tanggal Perbaikan</th>
                         <th>Foto kerusakan</th>
                         <th>Status</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -36,7 +30,6 @@
                         <th>Tanggal Perbaikan</th>
                         <th>Foto kerusakan</th>
                         <th>Status</th>
-                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -52,17 +45,25 @@
                             <td><?= $improvement["time_permintaan_perbaikan"]; ?></td>
                             <td class="text-center"><img src="<?= base_url('assets/img/perbaikan/' . $improvement["gambar_kerusakan_permintaan_perbaikan"]); ?>" width="70" class="img-thumbnail" alt=""></td>
                             <td>
-                                <?php if ($improvement['status_permintaan_perbaikan'] == "closed") { ?>
-                                    <a style="color: whitesmoke;" class="badge badge-secondary"> Closed</a>
-                                <?php } elseif ($improvement['status_permintaan_perbaikan'] == "waiting") { ?>
-                                    <a style="color: whitesmoke;" class="badge badge-warning"> waiting</a>
-                                <?php } elseif ($improvement['status_permintaan_perbaikan'] == "finish") { ?>
-                                    <a style="color: whitesmoke;" class="badge badge-danger"> Open</a>
-                                <?php } ?>
-                            </td>
-                            <td>
-                                <a href="<?= base_url('admin/update_perbaikan/' . $improvement["id_permintaan_perbaikan"]); ?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-                                <a onclick="return confirm('Data perbaikan akan terhapus')" href="<?= base_url('admin/deletePerbaikan/' . $improvement["id_permintaan_perbaikan"]); ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <div class="btn-group" role="group">
+                                    <?php if ($improvement['status_permintaan_perbaikan'] == "closed") { ?>
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Open
+                                        </button>
+                                    <?php } elseif ($improvement['status_permintaan_perbaikan'] == "waiting") { ?>
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Waiting
+                                        </button>
+                                    <?php } elseif ($improvement['status_permintaan_perbaikan'] == "finish") { ?>
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Closed
+                                        </button>
+                                    <?php } ?>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <a class="dropdown-item" href="<?php echo site_url('pusat/perbaikan/updateStatusW/' . $improvement['id_permintaan_perbaikan']) ?>">Waiting</a>
+                                        <a class="dropdown-item" href="<?php echo site_url('pusat/perbaikan/updateStatusC/' . $improvement['id_permintaan_perbaikan']) ?>">Closed</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

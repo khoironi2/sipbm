@@ -29,4 +29,20 @@ class Perbaikan_model extends CI_Model
 
         return $this->db->query($query)->result_array();
     }
+
+    public function getPById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_permintaan_perbaikan');
+        $this->db->where('id_permintaan_perbaikan', $id);
+
+        $result = $this->db->get();
+
+        return $result->row();
+    }
+    public function updateData($id, $data)
+    {
+        $this->db->where('id_permintaan_perbaikan', $id);
+        $this->db->update('tbl_permintaan_perbaikan', $data);
+    }
 }
