@@ -424,10 +424,15 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Observasi'
         ];
+        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['koleksi'] = $this->Koleksi_model->getAll();
+        $data['ruang'] = $this->Ruang_koleksi_model->getAll();
+        $data['observasi'] = $this->Observasi_model->getAll();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/observasi/index');
+        $this->load->view('admin/observasi/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -441,6 +446,41 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar');
         $this->load->view('admin/observasi/update');
         $this->load->view('templates/footer');
+    }
+
+    public function postObservasi()
+    {
+
+        $id_koleksi = $this->input->post('id_koleksi');
+        $id_ruang_koleksi = $this->input->post('id_ruang_koleksi');
+        $bahan_observasi_koleksi = $this->input->post('bahan_observasi_koleksi');
+        $keadaan_observasi_koleksi = $this->input->post('keadaan_observasi_koleksi');
+        $no_vitrin_observasi_koleksi = $this->input->post('no_vitrin_observasi_koleksi');
+        $jumlah_koleksi = $this->input->post('jumlah_koleksi');
+        $time_observasi = $this->input->post('time_observasi');
+        $rekomendasi_observasi_koleksi = $this->input->post('rekomendasi_observasi_koleksi');
+        $id = $this->input->post('id_users');
+
+        $data = [
+            'id_koleksi' => $id_koleksi,
+            'id_ruang_koleksi' => $id_ruang_koleksi,
+            'bahan_observasi_koleksi' => $bahan_observasi_koleksi,
+            'keadaan_observasi_koleksi' => $keadaan_observasi_koleksi,
+            'no_vitrin_observasi_koleksi' => $no_vitrin_observasi_koleksi,
+            'jumlah_koleksi' => $jumlah_koleksi,
+            'time_observasi' => $time_observasi,
+            'rekomendasi_observasi_koleksi' => $rekomendasi_observasi_koleksi,
+            'time_create_observasi' => date('Y-m-d H:i:s'),
+            'id_users' => $id
+        ];
+
+        $insert = $this->Observasi_model->tambah('tbl_observasi', $data);
+
+        if ($insert) {
+
+            $this->session->set_flashdata('success', '<div class="alert alert-success" role="alert">Sukses, Data user berhasil ditambahkan !</div>');
+            redirect('admin/observasi');
+        }
     }
 
     // observasi
@@ -620,6 +660,7 @@ class Admin extends CI_Controller
             'title' => 'Admin | Perawatan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
+<<<<<<< HEAD
 
         // validations
         $this->form_validation->set_rules('no_vitrin_permintaan_perbaikan', 'no vitrin', 'required');
@@ -633,6 +674,14 @@ class Admin extends CI_Controller
         } else {
             echo 'ok';
         }
+=======
+        $data['petugas'] = $this->Petugas_model->getpetugas();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('admin/perawatan/index');
+        $this->load->view('templates/footer');
+>>>>>>> 3c929739e8673795105655e22007f9bb490411bc
     }
 
     public function update_perawatan()
