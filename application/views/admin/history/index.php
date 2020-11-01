@@ -71,17 +71,20 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>US001</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>2011/04/25</td>
-                        <td>tidak ada</td>
-                    </tr>
+                <?php $no = 1; ?>
+                    <?php foreach ($histories as $history) : ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $history["name"] ?></td>
+                            <td><?= $history["nama_koleksi"]; ?></td>
+                            <td><?= $history["keadaan_koleksi_perawatan"]; ?></td>
+                            <td><?= $history["no_vitrin_koleksi_perawatan"]; ?></td>
+                            <td><?= $history["time_perawatan"]; ?></td>
+                            <td><?= $history["kegiatan_perawatan"]; ?></td>
+                            <td><?= $history["bahan_perawatan"]; ?></td>
+                            <td><?= $history["tambahan_perawatan"]; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

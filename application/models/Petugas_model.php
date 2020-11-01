@@ -2,15 +2,9 @@
 
 class Petugas_model extends CI_model
 {
-    public function getpetugas()
+    public function getPetugas()
     {
-        $this->db->select('*');
-        $this->db->from('tbl_users');
-        $this->db->where('level', 'petugas_perawatan');
-
-        $result = $this->db->get();
-
-        return $result->result();
+        return $this->db->get_where('tbl_users', ['level' => 'petugas_perawatan'])->result_array();
     }
 
     public function getIdsId()
