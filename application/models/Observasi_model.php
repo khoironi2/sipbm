@@ -79,8 +79,8 @@ class Observasi_model extends CI_Model
 
     public function update($id, $data)
     {
-        $this->db->where('id_koleksi', $id);
-        $this->db->update('tbl_koleksi', $data);
+        $this->db->where('id_observasi', $id);
+        $this->db->update('tbl_observasi', $data);
 
         if ($this->db->affected_rows() > 0)
             return true;
@@ -90,8 +90,8 @@ class Observasi_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where('id_koleksi', $id);
-        $this->db->delete('tbl_koleksi');
+        $this->db->where('id_observasi', $id);
+        $this->db->delete('tbl_observasi');
 
         if ($this->db->affected_rows() > 0)
             return true;
