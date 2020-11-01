@@ -16,6 +16,30 @@ class Observasi_model extends CI_Model
 
         return $result->result();
     }
+
+    public function laporanObservasi()
+    {
+        $dari = $this->input->post('dari');
+        $sampai = $this->input->post('sampai');
+
+        // $this->db->select('*');
+        // $this->db->from('tbl_observasi');
+        // $this->db->join('tbl_koleksi', 'tbl_koleksi.id_koleksi = tbl_observasi.id_koleksi');
+        // $this->db->join('tbl_ruang_koleksi', 'tbl_ruang_koleksi.id_ruang_koleksi = tbl_observasi.id_ruang_koleksi');
+        // $this->db->join('tbl_users', 'tbl_users.id_users = tbl_observasi.id_users');
+        // $this->db->where('tbl_observasi.time_observasi BETWEEN' . $sampai . 'AND' . $sampai);
+
+        $query = "SELECT `tbl_observasi`.*, `tbl_koleksi`.`nama_koleksi`, `tbl_ruang_koleksi`.`nama_ruang_koleksi`, `tbl_users`.`name`
+        FROM `tbl_observasi`
+        INNER JOIN `tbl_koleksi` ON `tbl_observasi`.`id_koleksi` = `tbl_koleksi`.`id_koleksi`
+        INNER JOIN `tbl_ruang_koleksi` ON `tbl_observasi`.`id_ruang_koleksi` = `tbl_ruang_koleksi`.`id_ruang_koleksi`
+        INNER JOIN `tbl_users` ON `tbl_observasi`.`id_users` = `tbl_users`.`id_users`
+        WHERE `time_observasi` BETWEEN $dari AND $sampai";
+        
+        return $this->db->query($query)->result_array();
+    }
+
+
     public function listberita()
     {
         $this->db->select('*');

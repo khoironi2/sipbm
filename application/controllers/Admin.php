@@ -893,11 +893,39 @@ class Admin extends CI_Controller
             'title' => 'Admin | Laporan Observasi',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
+
+        // $data['observasi'] = $this->Observasi_model->getAll();
+
+        if ($this->input->post('dari') AND $this->input->post('sampai')) {
+            $data['observasi'] = $this->Observasi_model->laporanObservasi();
+        }
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
         $this->load->view('admin/laporan/observasi');
         $this->load->view('templates/footer');
+    }
+
+    public function laporan_observasi_pdf()
+    {
+        // $this->load->library('dompdf_gen');
+        
+        if ($this->input->post('dari') AND $this->input->post('sampai')) {
+            $data['observasi'] = $this->Observasi_model->laporanObservasi();
+        }
+
+        $this->load->view('admin/laporan/pdf/Observasi');
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("laporan_observasi.pdf", ['Attachment' => 0]);
+
     }
 
     public function laporan_perbaikan()
