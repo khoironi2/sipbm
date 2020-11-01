@@ -1,5 +1,11 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+    </ol>
+</nav>
+
 <div class="row">
-    <div class="col-sm-7"> 
+    <div class="col-sm-7">
         <?= $this->session->flashdata('message'); ?>
         <div class="card">
             <div class="card-header">
