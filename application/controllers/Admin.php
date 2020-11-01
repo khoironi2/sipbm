@@ -365,7 +365,7 @@ class Admin extends CI_Controller
     public function laporan_perawatan()
     {
         $data = [
-            'title' => 'Admin | History Perawatan',
+            'title' => 'Admin | Laporan Perawatan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
@@ -375,6 +375,26 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar');
         $this->load->view('admin/laporan/perawatan');
         $this->load->view('templates/footer');
+    }
+
+    public function laporan_perawatan_pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $keyword1 = $this->input->post('keyword1');
+        $keyword2 = $this->input->post('keyword2');
+
+        $data['perawatan'] = $this->Perawatan_model->getPerawatanByDate($keyword1, $keyword2);
+        $this->load->view('admin/laporan/pdf/Perawatan', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("laporan_observasi.pdf", ['Attachment' => 0]);
     }
 
     // |------------------------------------------------------

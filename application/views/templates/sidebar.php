@@ -172,8 +172,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url('admin/users') ?>">
-            <i class="fas fa-fw fa-user"></i>
+        <a class="nav-link pb-0" href="<?= base_url('Auth/logout') ?>">
+            <i class="fas fa-fw fa-sign-out-alt"></i>
             <span>Logout</span>
         </a>
     </li>
