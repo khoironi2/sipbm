@@ -22,13 +22,13 @@
             <?php foreach ($improvements as $improvement) : ?>
                 <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $improvement["nama_koleksi"]; ?></td>
-                    <td><?= $improvement["nama_ruang_koleksi"]; ?></td>
-                    <td><?= $improvement["bahan_permintaan_perbaikan"]; ?></td>
-                    <td><?= $improvement["keadaan_koleksi_permintaan_perbaikan"]; ?></td>
-                    <td><?= $improvement["no_vitrin_permintaan_perbaikan"]; ?></td>
-                    <td><?= $improvement["time_permintaan_perbaikan"]; ?></td>
-                    <td class="text-center"><img src="<?= base_url('assets/img/perbaikan/' . $improvement["gambar_kerusakan_permintaan_perbaikan"]); ?>" width="70" class="img-thumbnail" alt=""></td>
+                    <td><?= $improvement->nama_koleksi; ?></td>
+                    <td><?= $improvement->nama_ruang_koleksi; ?></td>
+                    <td><?= $improvement->bahan_permintaan_perbaikan; ?></td>
+                    <td><?= $improvement->keadaan_koleksi_permintaan_perbaikan; ?></td>
+                    <td><?= $improvement->no_vitrin_permintaan_perbaikan; ?></td>
+                    <td><?= $improvement->time_permintaan_perbaikan; ?></td>
+                    <td class="text-center"><img src="<?= base_url('assets/img/perbaikan/' . $improvement->gambar_kerusakan_permintaan_perbaikan); ?>" width="70" class="img-thumbnail" alt=""></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

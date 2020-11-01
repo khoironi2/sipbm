@@ -29,6 +29,20 @@ class Perbaikan_model extends CI_Model
 
         return $this->db->query($query)->result_array();
     }
+    public function getbytgl($keyword1, $keyword2)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_permintaan_perbaikan');
+        $this->db->join('tbl_koleksi', 'tbl_koleksi.id_koleksi = tbl_permintaan_perbaikan.id_koleksi');
+        $this->db->join('tbl_ruang_koleksi', 'tbl_ruang_koleksi.id_ruang_koleksi = tbl_permintaan_perbaikan.id_ruang_koleksi');
+        $this->db->join('tbl_users', 'tbl_users.id_users = tbl_permintaan_perbaikan.id_users');
+        $this->db->where('time_permintaan_perbaikan >=', $keyword1);
+        $this->db->where('time_permintaan_perbaikan <=', $keyword2);
+
+        $result = $this->db->get();
+
+        return $result->result();
+    }
 
     public function getPById($id)
     {

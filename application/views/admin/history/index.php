@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 <!-- <div class="row">
-=======
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Histori Perawatan</li>
-    </ol>
-</nav>
-
-<div class="row mt-4">
->>>>>>> 49c0891e5d2267233e608304d8bf44f8dbb096aa
     <div class="col-sm-1">
         <div class="form-group">
             <select class="form-control" id="tanggal">
@@ -82,11 +72,7 @@
                 </tfoot>
                 <tbody>
                     <?php $no = 1; ?>
-<<<<<<< HEAD
                     <?php foreach ($historyperawatan as $history) : ?>
-=======
-                    <?php foreach ($histories as $history) : ?>
->>>>>>> 49c0891e5d2267233e608304d8bf44f8dbb096aa
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $history["name"] ?></td>

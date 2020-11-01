@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Perawatan_model extends CI_Model
 {
@@ -83,5 +83,19 @@ class Perawatan_model extends CI_Model
         $this->db->where('time_perawatan <=', $keyword2);
 
         return $this->db->query($query)->result_array();
+    }
+
+    public function getbytgl($keyword1, $keyword2)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_perawatan');
+        $this->db->join('tbl_koleksi', 'tbl_koleksi.id_koleksi = tbl_perawatan.id_koleksi');
+        $this->db->join('tbl_users', 'tbl_users.id_users = tbl_perawatan.id_users');
+        $this->db->where('time_perawatan >=', $keyword1);
+        $this->db->where('time_perawatan <=', $keyword2);
+
+        $result = $this->db->get();
+
+        return $result->result();
     }
 }

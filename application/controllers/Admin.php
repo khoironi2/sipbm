@@ -390,7 +390,7 @@ class Admin extends CI_Controller
         $keyword1 = $this->input->post('keyword1');
         $keyword2 = $this->input->post('keyword2');
 
-        $data['improvements'] = $this->Perbaikan_model->getPerbaikanByDate($keyword1, $keyword2);
+        $data['improvements'] = $this->Perbaikan_model->getbytgl($keyword1, $keyword2);
         $this->load->view('admin/laporan/pdf/Perbaikan', $data);
 
         $paper_size = 'A4';
@@ -433,7 +433,7 @@ class Admin extends CI_Controller
         $keyword1 = $this->input->post('keyword1');
         $keyword2 = $this->input->post('keyword2');
 
-        $data['perawatan'] = $this->Perawatan_model->getPerawatanByDate($keyword1, $keyword2);
+        $data['perawatan'] = $this->Perawatan_model->getbytgl($keyword1, $keyword2);
         $this->load->view('admin/laporan/pdf/Perawatan', $data);
 
         $paper_size = 'A4';
