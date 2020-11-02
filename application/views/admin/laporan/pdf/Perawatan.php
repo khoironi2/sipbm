@@ -3,10 +3,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
 </head><body>
-    <h1>SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
-    <h1>LAPORAN PERAWATAN</h1>
-    <p><span>Range Date </span></span>:<?= $awal; ?> - <?= $akhir; ?></p>
+    <h1 style="text-align: center;"><?= $logo; ?> SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
+    <h4 style="background-color: #6c5ce7; color: white; padding: 1px; width: 190px; border: 1px solid #6c5ce7; margin-left: 420px; text-align: center;">LAPORAN PERAWATAN</h4>
+    <p style="text-align: center;"><span>Range Date </span></span>: <?= $awal; ?> - <?= $akhir; ?></p>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
