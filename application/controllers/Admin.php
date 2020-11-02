@@ -16,7 +16,8 @@ class Admin extends CI_Controller
     public function index()
     {
         $data = [
-            'title' => 'Admin | Dashboard'
+            'title' => 'Admin | Dashboard',
+            'abouts' => $this->db->get('tbl_about_museum')->result_array()
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -25,6 +26,56 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/dashboard/index');
         $this->load->view('templates/footer');
+    }
+
+    public function update_about($id)
+    { 
+        $data = [
+            'title' => 'Admin | Dashboard',
+            'about' => $this->db->get('tbl_about_museum', ['id_about_museum' => $id])->row_array(),
+            'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+        ];
+
+        $old_image = $data['about']['gambar_museum'];
+
+        $this->form_validation->set_rules('nama_museum', 'nama museum', 'required');
+        $this->form_validation->set_rules('deskripsi_museum', 'deskripsi museum', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/dashboard/update_about');
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama_museum' => $this->input->post('nama_museum'),
+                'deskripsi_museum' => $this->input->post('deskripsi_museum'),
+            ];
+
+            $upload_image = $_FILES['gambar_museum']['name'];
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['upload_path'] = './assets/img/abouts/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('gambar_museum')) {
+                    if ($old_image != 'default.jpg') {
+                        unlink(FCPATH . 'assets/img/abouts/' . $old_image);
+                    }
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('gambar_museum', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+
+            $this->db->where('id_about_museum', $this->input->post('id_about_museum'));
+            $this->db->update('tbl_about_museum', $data);
+
+            redirect('admin');
+        }
     }
 
     // |------------------------------------------------------

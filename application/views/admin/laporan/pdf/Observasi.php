@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-</head><body>
+</head><body> -->
+    <?php $this->load->view('templates/header') ?>
     <h1 class="text-center">SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
     <h1>LAPORAN OBSERVASI</h1>
     <p><span>Range Date </span></span>:<?= $awal; ?> - <?= $akhir; ?></p>
