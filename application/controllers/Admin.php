@@ -342,7 +342,8 @@ class Admin extends CI_Controller
         $tgl_akhir = $this->input->post('sampai');
         $data = [
             'awal' =>  $tgl_awal,
-            'akhir' => $tgl_akhir
+            'akhir' => $tgl_akhir,
+            'logo' => '<img src="assets/img/Logo.png" width="30" alt="" class="mr-3">'
         ];
         $data['observasi'] = $this->Observasi_model->getbytgl($tgl_awal, $tgl_akhir);
         $this->load->view('admin/laporan/pdf/Observasi', $data);
@@ -396,7 +397,9 @@ class Admin extends CI_Controller
         $keyword2 = $this->input->post('keyword2');
         $data = [
             'awal' =>  $keyword1,
-            'akhir' => $keyword2
+            'akhir' => $keyword2,
+            'logo' => '<img src="assets/img/Logo.png" width="30" alt="" class="mr-3">',
+            'gambar' => 'assets/img/perbaikan/'
         ];
 
         $data['improvements'] = $this->Perbaikan_model->getbytgl($keyword1, $keyword2);
@@ -452,7 +455,8 @@ class Admin extends CI_Controller
 
         $data = [
             'awal' =>  $keyword1,
-            'akhir' => $keyword2
+            'akhir' => $keyword2,
+            'logo' => '<img src="assets/img/Logo.png" width="30" alt="" class="mr-3">'
         ];
 
         $data['perawatan'] = $this->Perawatan_model->getbytgl($keyword1, $keyword2);

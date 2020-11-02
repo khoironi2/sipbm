@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head><body>
-    <img src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/assets/img/Logo.png';?>"/>
-    <h1 style="text-align: center;"><img src="/assets/img/Logo.png" width="30" alt="" class="mr-3"> SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
+
+    <h1 style="text-align: center;"><?= $logo; ?> SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
     <h4 style="background-color: #6c5ce7; color: white; padding: 1px; width: 190px; border: 1px solid #6c5ce7; margin-left: 420px; text-align: center;">LAPORAN OBSERVASI</h4>
     <p style="text-align: center;"><span>Range Date </span></span>: <?= $awal; ?> - <?= $akhir; ?></p>
     <table class="table table-bordered" width="100%" cellspacing="0">
