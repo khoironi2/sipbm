@@ -3,6 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
 </head><body>
     <h1 style="text-align: center;"><?= $logo; ?> SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
     <h4 style="background-color: #6c5ce7; color: white; padding: 1px; width: 190px; border: 1px solid #6c5ce7; margin-left: 420px; text-align: center;">LAPORAN PERAWATAN</h4>
