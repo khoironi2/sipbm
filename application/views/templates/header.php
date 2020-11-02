@@ -24,6 +24,10 @@
 </head>
 
 <body id="page-top">
+    <div class="alert alert-dark mb-0">
+        <img src="<?= base_url('assets/img/Logo.png') ?>" width="30" alt="" class="mr-3">
+        SISTEM INFORMASI PERAWATAN BENDA-BENDA MUSEUM
+    </div>
 
     <!-- Page Wrapper -->
     <div id="wrapper">

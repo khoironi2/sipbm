@@ -5,7 +5,8 @@
         <div class="col-lg-6">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="alert alert-dark text-center">
+                <div class="alert alert-dark">
+                    <img src="<?= base_url('assets/img/Logo.png') ?>" width="30" alt="" class="mr-3">
                     Sistem Informasi Perawatan Benda Museum
                 </div>
                 <div class="card-body p-0">

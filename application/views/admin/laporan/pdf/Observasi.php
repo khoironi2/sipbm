@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head><body>
-    <h1>SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
+    <h1 class="text-center">SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
     <h1>LAPORAN OBSERVASI</h1>
     <p><span>Range Date </span></span>:<?= $awal; ?> - <?= $akhir; ?></p>
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table table-bordered" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>No</th>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <?php $no = 1;
-            
+
             foreach ($observasi as $data) : ?>
                 <tr>
                     <td><?= $no++  ?></td>
