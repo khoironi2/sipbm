@@ -68,6 +68,7 @@
 
             $(".pusat").remove();
             $(".pengelola").remove();
+            $(".jenis_koleksi").remove();
 
         });
     <?php }
@@ -77,6 +78,7 @@
         $(document).ready(function() {
             $(".admin").remove();
             $(".pengelola").remove();
+            $(".jenis_koleksi").remove();
 
         });
 
@@ -86,6 +88,7 @@
 
             $(".admin").remove();
             $(".pusat").remove();
+            $(".jenis_koleksi").remove();
 
 
         });

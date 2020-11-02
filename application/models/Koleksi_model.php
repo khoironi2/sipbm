@@ -10,6 +10,7 @@ class Koleksi_model extends CI_Model
         $this->db->from('tbl_koleksi');
         $this->db->join('tbl_jenis_koleksi', 'tbl_jenis_koleksi.id_jenis_koleksi = tbl_koleksi.id_jenis_koleksi');
         $this->db->join('tbl_users', 'tbl_users.id_users = tbl_koleksi.id_users');
+        $this->db->order_by('id_koleksi', 'DESC');
 
         $result = $this->db->get();
 
