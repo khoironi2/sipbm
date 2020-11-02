@@ -295,7 +295,7 @@ class Admin extends CI_Controller
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['historyperawatan'] = $this->Perawatan_model->getAllPerawatan();
+        $data['historyperawatan'] = $this->Perawatan_model->getAllHistory();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -340,6 +340,10 @@ class Admin extends CI_Controller
 
         $tgl_awal = $this->input->post('dari');
         $tgl_akhir = $this->input->post('sampai');
+        $data = [
+            'awal' =>  $tgl_awal,
+            'akhir' => $tgl_akhir
+        ];
         $data['observasi'] = $this->Observasi_model->getbytgl($tgl_awal, $tgl_akhir);
         $this->load->view('admin/laporan/pdf/Observasi', $data);
         $paper_size = 'A4';
@@ -389,6 +393,10 @@ class Admin extends CI_Controller
 
         $keyword1 = $this->input->post('keyword1');
         $keyword2 = $this->input->post('keyword2');
+        $data = [
+            'awal' =>  $keyword1,
+            'akhir' => $keyword2
+        ];
 
         $data['improvements'] = $this->Perbaikan_model->getbytgl($keyword1, $keyword2);
         $this->load->view('admin/laporan/pdf/Perbaikan', $data);
@@ -440,6 +448,11 @@ class Admin extends CI_Controller
 
         $keyword1 = $this->input->post('keyword1');
         $keyword2 = $this->input->post('keyword2');
+
+        $data = [
+            'awal' =>  $keyword1,
+            'akhir' => $keyword2
+        ];
 
         $data['perawatan'] = $this->Perawatan_model->getbytgl($keyword1, $keyword2);
         $this->load->view('admin/laporan/pdf/Perawatan', $data);

@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head><body>
+    <h1>SISTEM INFORMASI PERAWATAN BENDA MUSEUM</h1>
+    <h1>LAPORAN OBSERVASI</h1>
+    <p><span>Range Date </span></span>:<?= $awal; ?> - <?= $akhir; ?></p>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>

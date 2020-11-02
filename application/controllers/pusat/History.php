@@ -26,7 +26,7 @@ class History extends CI_Controller
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['historyperawatan'] = $this->Perawatan_model->getAllPerawatan();
+        $data['historyperawatan'] = $this->Perawatan_model->getAllHistory();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
