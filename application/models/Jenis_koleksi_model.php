@@ -13,6 +13,17 @@ class Jenis_koleksi_model extends CI_Model
 
         return $result->result();
     }
+
+    public function getAllJoin()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_jenis_koleksi');
+        $this->db->join('tbl_users', 'tbl_users.id_users = tbl_jenis_koleksi.id_users');
+
+        $result = $this->db->get();
+
+        return $result->result();
+    }
     public function listberita()
     {
         $this->db->select('*');
@@ -52,7 +63,7 @@ class Jenis_koleksi_model extends CI_Model
 
     public function insert($data)
     {
-        $this->db->insert('tbl_koleksi', $data);
+        $this->db->insert('tbl_jenis_koleksi', $data);
 
         if ($this->db->affected_rows() > 0)
             return true;
@@ -60,10 +71,10 @@ class Jenis_koleksi_model extends CI_Model
             return false;
     }
 
-    public function editBerita($id_post, $data)
+    public function update($id, $data)
     {
-        $this->db->where('id_post', $id_post);
-        $this->db->update('tbl_post', $data);
+        $this->db->where('id_jenis_koleksi', $id);
+        $this->db->update('tbl_jenis_koleksi', $data);
 
         if ($this->db->affected_rows() > 0)
             return true;
@@ -71,10 +82,10 @@ class Jenis_koleksi_model extends CI_Model
             return false;
     }
 
-    public function deleteBerita($id_post)
+    public function delete($id)
     {
-        $this->db->where('id_post', $id_post);
-        $this->db->delete('tbl_post');
+        $this->db->where('id_jenis_koleksi', $id);
+        $this->db->delete('tbl_jenis_koleksi');
 
         if ($this->db->affected_rows() > 0)
             return true;

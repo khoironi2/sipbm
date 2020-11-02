@@ -35,11 +35,19 @@
             <span>Data User</span>
         </a>
     </li>
+
     <li class="nav-item admin">
-        <a class="nav-link pb-0" href="<?= base_url('koleksi/koleksi') ?>">
+        <a class="nav-link pb-0 collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-list"></i>
             <span>Data Koleksi</span>
         </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="<?= base_url('koleksi/koleksi') ?>">Data Koleksi</a>
+                <a class="collapse-item jenis_koleksi" href="<?= base_url('koleksi/jenis_koleksi') ?>">Jenis _koleksi</a>
+            </div>
+        </div>
     </li>
     <li class="nav-item admin">
         <a class="nav-link pb-0" href="<?= base_url('observasi/observasi') ?>">
