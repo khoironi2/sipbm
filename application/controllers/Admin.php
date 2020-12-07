@@ -368,8 +368,9 @@ class Admin extends CI_Controller
             'title' => 'Admin | Laporan Observasi',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
-        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['users'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['observasi'] = $this->Observasi_model->getAll();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -422,6 +423,7 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Laporan Perbaikan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'improvements' => $this->Perbaikan_model->getAllImprovement(),
         ];
         $data['users'] = $this->db->get_where('tbl_users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -479,9 +481,10 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Admin | Laporan Perawatan',
             'users' => $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array(),
+            'perawatan' => $this->Perawatan_model->getAllPerawatan()
         ];
-        $data['users'] = $this->db->get_where('tbl_users', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['users'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('email')])->row_array();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
